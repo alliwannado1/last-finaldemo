@@ -1,0 +1,25 @@
+<?page title="Quản lý tham số" contentType="text/html;charset=UTF-8"?>
+<div xmlns:zk="zk" xmlns:n="native" xmlns:x="xhtml"
+	apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('vn.toancauxanh.gg.model.ThamSo')"
+	validationMessages="@id('vmsgs')">
+	
+	<div class="row box-body">
+		
+		<div zclass="col-lg-4">
+			<div zclass="form-group">
+				<hlayout class="control-label">
+					<x:label>Cập nhật chủ đề tin tức<n:small class="required"> *</n:small></x:label>
+				</hlayout>
+				<vlayout>
+					<textbox id="txtTinTuc" class="form-control"
+						value="@load(vm.chuDeTinTuc.value)" />
+				</vlayout>
+				<x:button style="margin-top: 10px;" class="btn btn-primary" visible="@load(entry.quyen.thamso_sua or (vm.noId() and entry.quyen.thamso_them))"
+					onClick="@command('saveThamSo',list=vmArgs, id = txtTinTuc.getValue())">
+					<n:i class="fa fa-save"></n:i> Lưu 
+				</x:button>&#160;
+			</div>
+		</div>
+	</div>
+</div>
